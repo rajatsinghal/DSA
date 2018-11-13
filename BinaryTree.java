@@ -132,6 +132,10 @@ class BalancedBinarySearchTree extends BinarySearchTree {
         super(item);
     }
 
+    public static BalancedBinarySearchTree createFromBinarySearchTree() {
+        
+    }
+
 }
 
 class TestProject {
