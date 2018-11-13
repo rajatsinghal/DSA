@@ -30,18 +30,18 @@ class BinaryTree {
         List<Integer> traversed_items = new ArrayList<>();
         traversed_items.add(this.item);
         if (this.left_child != null)
-            traversed_items.addAll(this.left_child.traverseDepthFirstInorder());
+            traversed_items.addAll(this.left_child.traverseDepthFirstPreorder());
         if (this.right_child != null)
-            traversed_items.addAll(this.right_child.traverseDepthFirstInorder());
+            traversed_items.addAll(this.right_child.traverseDepthFirstPreorder());
         return traversed_items;
     }
 
     public List<Integer> traverseDepthFirstPostorder() { // Left-Right-Root
         List<Integer> traversed_items = new ArrayList<>();
         if (this.left_child != null)
-            traversed_items.addAll(this.left_child.traverseDepthFirstInorder());
+            traversed_items.addAll(this.left_child.traverseDepthFirstPostorder());
         if (this.right_child != null)
-            traversed_items.addAll(this.right_child.traverseDepthFirstInorder());
+            traversed_items.addAll(this.right_child.traverseDepthFirstPostorder());
         traversed_items.add(this.item);
         return traversed_items;
     }
