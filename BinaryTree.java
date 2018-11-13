@@ -4,7 +4,7 @@ class BinaryTree {
     int number_of_items = 0;
     BinaryTree left_child;
     BinaryTree right_child;
-
+    
     public BinaryTree(int item) {
         this.item = item;
     }
@@ -26,7 +26,7 @@ class BinaryTree {
     }
 
     public int calculateHeight() {
-
+        return -1;
     }
 
     public void mirror() {
@@ -36,6 +36,10 @@ class BinaryTree {
 }
 
 class BinarySearchTree extends BinaryTree {
+
+    public BinarySearchTree(int item) {
+        super(item);
+    }
 
     void insert(int item) {
         if(this.item < item) {
@@ -55,8 +59,8 @@ class BinarySearchTree extends BinaryTree {
         }
     }
 
-    bool search(int item) {
-
+    boolean search(int item) {
+        return false;
     }
 
     void delete(int item) {
@@ -66,4 +70,18 @@ class BinarySearchTree extends BinaryTree {
 
 class BalancedBinarySearchTree extends BinarySearchTree {
     
+    public BalancedBinarySearchTree(int item) {
+        super(item);
+    }
+
+}
+
+class TestProject {
+    public static void main() {
+        BinarySearchTree bst = new BinarySearchTree(5);
+        bst.insert(2);
+        bst.insert(4);
+        bst.insert(10);
+        bst.insert(7);
+    }
 }
