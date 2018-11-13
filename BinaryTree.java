@@ -102,6 +102,8 @@ class TestProject {
         for(int item : items)
             if(!bst.search(item))
                 System.out.println("Item " + item + " was inserted but is not found!!");
+        
+        System.out.println("Height of resultant tree:" + bst.calculateHeight());
     }
 
 }
