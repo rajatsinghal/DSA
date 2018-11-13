@@ -153,7 +153,7 @@ class TestProject {
 
     public static void main(String[] args) {
         BinarySearchTree bst = new BinarySearchTree(5);
-        int[] items = {2, 4, 10, 7};
+        int[] items = {2, 4, 10, 7, 15, 17, 18};
         
         for(int item : items)
             bst.insert(item);
@@ -176,6 +176,9 @@ class TestProject {
         System.out.println("Resultant tree: (Inorder)" + bst.traverseDepthFirstInorder().toString());
         System.out.println("Resultant tree: (Preorder)" + bst.traverseDepthFirstPreorder().toString());
         System.out.println("Resultant tree: (Postorder)" + bst.traverseDepthFirstPostorder().toString());
+
+        BalancedBinarySearchTree bbst = BalancedBinarySearchTree.createFromBinarySearchTree(bst);
+        System.out.println("Height of resultant balanced tree:" + bbst.calculateHeight());
     }
 
 }
