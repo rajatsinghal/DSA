@@ -44,13 +44,13 @@ class BinarySearchTree extends BinaryTree {
     void insert(int item) {
         if (this.item < item) {
             if (this.left_child == null) {
-                this.left_child = new BinaryTree(item);
+                this.left_child = new BinarySearchTree(item);
             } else {
                 ((BinarySearchTree) this.left_child).insert(item);
             }
         } else if (this.item > item) {
             if (this.right_child == null) {
-                this.right_child = new BinaryTree(item);
+                this.right_child = new BinarySearchTree(item);
             } else {
                 ((BinarySearchTree) this.right_child).insert(item);
             }
@@ -89,11 +89,17 @@ class BalancedBinarySearchTree extends BinarySearchTree {
 }
 
 class TestProject {
-    public static void main() {
+
+    public static void main(String[] args) {
         BinarySearchTree bst = new BinarySearchTree(5);
-        bst.insert(2);
-        bst.insert(4);
-        bst.insert(10);
-        bst.insert(7);
+        int[] items = {2, 4, 10, 7};
+        
+        for(int item : items)
+            bst.insert(item);
+
+        for(int item : items)
+            if(!bst.search(item))
+                System.out.println("Item " + item + " was inserted but is not found!!");
     }
+
 }
