@@ -143,7 +143,7 @@ class BalancedBinarySearchTree extends BinarySearchTree {
         if(middle_position >= 1)
             bbst.left_child = BalancedBinarySearchTree.createFromSortedList(items.subList(0, middle_position));
         if(items.size() - middle_position > 1)
-            bbst.right_child = BalancedBinarySearchTree.createFromSortedList(items.subList(middle_position, items.size() - 1));
+            bbst.right_child = BalancedBinarySearchTree.createFromSortedList(items.subList(middle_position+1, items.size()));
         return bbst;
     }
 
@@ -163,22 +163,25 @@ class TestProject {
                 System.out.println("Item " + item + " was inserted but is not found!!");
         
         System.out.println("Height of resultant tree:" + bst.calculateHeight());
-
         System.out.println("Resultant tree: (BreadthFirst)" + bst.traverseBreadthFirst().toString());
         System.out.println("Resultant tree: (Inorder)" + bst.traverseDepthFirstInorder().toString());
         System.out.println("Resultant tree: (Preorder)" + bst.traverseDepthFirstPreorder().toString());
         System.out.println("Resultant tree: (Postorder)" + bst.traverseDepthFirstPostorder().toString());
 
-        bst.mirror();
-        System.out.println("Tree mirrored");
+        // bst.mirror();
+        // System.out.println("Tree mirrored");
 
-        System.out.println("Resultant tree: (BreadthFirst)" + bst.traverseBreadthFirst().toString());
-        System.out.println("Resultant tree: (Inorder)" + bst.traverseDepthFirstInorder().toString());
-        System.out.println("Resultant tree: (Preorder)" + bst.traverseDepthFirstPreorder().toString());
-        System.out.println("Resultant tree: (Postorder)" + bst.traverseDepthFirstPostorder().toString());
+        // System.out.println("Resultant tree: (BreadthFirst)" + bst.traverseBreadthFirst().toString());
+        // System.out.println("Resultant tree: (Inorder)" + bst.traverseDepthFirstInorder().toString());
+        // System.out.println("Resultant tree: (Preorder)" + bst.traverseDepthFirstPreorder().toString());
+        // System.out.println("Resultant tree: (Postorder)" + bst.traverseDepthFirstPostorder().toString());
 
         BalancedBinarySearchTree bbst = BalancedBinarySearchTree.createFromBinarySearchTree(bst);
         System.out.println("Height of resultant balanced tree:" + bbst.calculateHeight());
+        System.out.println("Resultant balanced tree: (BreadthFirst)" + bbst.traverseBreadthFirst().toString());
+        System.out.println("Resultant balanced tree: (Inorder)" + bbst.traverseDepthFirstInorder().toString());
+        System.out.println("Resultant balanced tree: (Preorder)" + bbst.traverseDepthFirstPreorder().toString());
+        System.out.println("Resultant balanced tree: (Postorder)" + bbst.traverseDepthFirstPostorder().toString());
     }
 
 }
