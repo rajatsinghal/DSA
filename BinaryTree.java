@@ -132,8 +132,19 @@ class BalancedBinarySearchTree extends BinarySearchTree {
         super(item);
     }
 
-    public static BalancedBinarySearchTree createFromBinarySearchTree() {
-        
+    public static BalancedBinarySearchTree createFromBinarySearchTree(BinarySearchTree bst) {
+        List<Integer> in_order = bst.traverseDepthFirstInorder();
+        return BalancedBinarySearchTree.createFromSortedList(in_order);
+    }
+
+    public static BalancedBinarySearchTree createFromSortedList(List<Integer> items) {
+        int middle_position = items.size() / 2;
+        BalancedBinarySearchTree bbst = new BalancedBinarySearchTree(items.get(middle_position));
+        if(middle_position >= 1)
+            bbst.left_child = BalancedBinarySearchTree.createFromSortedList(items.subList(0, middle_position));
+        if(items.size() - middle_position > 1)
+            bbst.right_child = BalancedBinarySearchTree.createFromSortedList(items.subList(middle_position, items.size() - 1));
+        return bbst;
     }
 
 }
