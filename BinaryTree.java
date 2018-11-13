@@ -26,7 +26,7 @@ class BinaryTree {
     }
 
     public int calculateHeight() {
-        return -1;
+        
     }
 
     public void mirror() {
