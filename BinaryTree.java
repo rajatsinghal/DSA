@@ -125,6 +125,10 @@ class TestProject {
                 System.out.println("Item " + item + " was inserted but is not found!!");
         
         System.out.println("Height of resultant tree:" + bst.calculateHeight());
+
+        System.out.println("Resultant tree: (Inorder)" + bst.traverseDepthFirstInorder().toString());
+        System.out.println("Resultant tree: (Preorder)" + bst.traverseDepthFirstPreorder().toString());
+        System.out.println("Resultant tree: (Postorder)" + bst.traverseDepthFirstPostorder().toString());
     }
 
 }
