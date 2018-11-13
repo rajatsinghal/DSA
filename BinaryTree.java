@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 class BinaryTree {
 
     int item;
@@ -13,16 +16,34 @@ class BinaryTree {
 
     }
 
-    public void traverseDepthFirstInorder() { // Left-Root-Right
-
+    public List<Integer> traverseDepthFirstInorder() { // Left-Root-Right
+        List<Integer> traversed_items = new ArrayList<>();
+        if(this.left_child != null)
+            traversed_items.addAll(this.left_child.traverseDepthFirstInorder());
+        traversed_items.add(this.item);
+        if (this.right_child != null)
+            traversed_items.addAll(this.right_child.traverseDepthFirstInorder());
+        return traversed_items;
     }
 
-    public void traverseDepthFirstPreorder() { // Root-Left-Right
-
+    public List<Integer> traverseDepthFirstPreorder() { // Root-Left-Right
+        List<Integer> traversed_items = new ArrayList<>();
+        traversed_items.add(this.item);
+        if (this.left_child != null)
+            traversed_items.addAll(this.left_child.traverseDepthFirstInorder());
+        if (this.right_child != null)
+            traversed_items.addAll(this.right_child.traverseDepthFirstInorder());
+        return traversed_items;
     }
 
-    public void traverseDepthFirstPostorder() { // Left-Right-Root
-
+    public List<Integer> traverseDepthFirstPostorder() { // Left-Right-Root
+        List<Integer> traversed_items = new ArrayList<>();
+        if (this.left_child != null)
+            traversed_items.addAll(this.left_child.traverseDepthFirstInorder());
+        if (this.right_child != null)
+            traversed_items.addAll(this.right_child.traverseDepthFirstInorder());
+        traversed_items.add(this.item);
+        return traversed_items;
     }
 
     public int calculateHeight() {
