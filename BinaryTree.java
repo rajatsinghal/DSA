@@ -69,7 +69,7 @@ class BinaryTree {
     }
 
     public void mirror() {
-
+        
     }
 
 }
