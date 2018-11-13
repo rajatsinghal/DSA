@@ -26,7 +26,9 @@ class BinaryTree {
     }
 
     public int calculateHeight() {
-        
+        int left_child_height = this.left_child == null ? 0 : this.left_child.calculateHeight();
+        int right_child_height = this.right_child == null ? 0 : this.right_child.calculateHeight();
+        return Math.max(left_child_height, right_child_height) + 1;
     }
 
     public void mirror() {
