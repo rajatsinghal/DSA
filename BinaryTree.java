@@ -69,7 +69,14 @@ class BinaryTree {
     }
 
     public void mirror() {
-        
+        BinaryTree temp =  this.left_child;
+        this.left_child = this.right_child;
+        this.right_child = temp;
+
+        if(this.left_child != null)
+            this.left_child.mirror();
+        if(this.right_child != null)
+            this.right_child.mirror();
     }
 
 }
