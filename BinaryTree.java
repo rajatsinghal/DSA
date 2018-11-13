@@ -42,17 +42,17 @@ class BinarySearchTree extends BinaryTree {
     }
 
     void insert(int item) {
-        if (this.item < item) {
-            if (this.left_child == null) {
-                this.left_child = new BinarySearchTree(item);
-            } else {
-                ((BinarySearchTree) this.left_child).insert(item);
-            }
-        } else if (this.item > item) {
+        if (item > this.item) {
             if (this.right_child == null) {
                 this.right_child = new BinarySearchTree(item);
             } else {
                 ((BinarySearchTree) this.right_child).insert(item);
+            }
+        } else if (item < this.item) {
+            if (this.left_child == null) {
+                this.left_child = new BinarySearchTree(item);
+            } else {
+                ((BinarySearchTree) this.left_child).insert(item);
             }
         } else {
             this.number_of_items++;
