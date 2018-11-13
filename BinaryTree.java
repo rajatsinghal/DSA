@@ -150,7 +150,14 @@ class TestProject {
         System.out.println("Height of resultant tree:" + bst.calculateHeight());
 
         System.out.println("Resultant tree: (BreadthFirst)" + bst.traverseBreadthFirst().toString());
+        System.out.println("Resultant tree: (Inorder)" + bst.traverseDepthFirstInorder().toString());
+        System.out.println("Resultant tree: (Preorder)" + bst.traverseDepthFirstPreorder().toString());
+        System.out.println("Resultant tree: (Postorder)" + bst.traverseDepthFirstPostorder().toString());
 
+        bst.mirror();
+        System.out.println("Tree mirrored");
+
+        System.out.println("Resultant tree: (BreadthFirst)" + bst.traverseBreadthFirst().toString());
         System.out.println("Resultant tree: (Inorder)" + bst.traverseDepthFirstInorder().toString());
         System.out.println("Resultant tree: (Preorder)" + bst.traverseDepthFirstPreorder().toString());
         System.out.println("Resultant tree: (Postorder)" + bst.traverseDepthFirstPostorder().toString());
