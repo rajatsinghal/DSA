@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 class BinaryTree {
@@ -12,8 +13,23 @@ class BinaryTree {
         this.item = item;
     }
 
-    public void traverseBreadthFirst() {
+    public List<Integer> traverseBreadthFirst() { // Height-level
+        return traverseNodesAtDepthLevel(Arrays.asList(this));
+    }
 
+    public List<Integer> traverseNodesAtDepthLevel(List<BinaryTree> level_nodes) {
+        List<Integer> traversed_items = new ArrayList<>();
+        List<BinaryTree> children_nodes = new ArrayList<>();
+        for(BinaryTree node : level_nodes) {
+            traversed_items.add(node.item);
+            if(node.left_child != null)
+                children_nodes.add(node.left_child);
+            if (node.right_child != null)
+                children_nodes.add(node.right_child);
+        }
+        if(children_nodes.size() > 0)
+            traversed_items.addAll(traverseNodesAtDepthLevel(children_nodes));
+        return traversed_items;
     }
 
     public List<Integer> traverseDepthFirstInorder() { // Left-Root-Right
@@ -125,6 +141,8 @@ class TestProject {
                 System.out.println("Item " + item + " was inserted but is not found!!");
         
         System.out.println("Height of resultant tree:" + bst.calculateHeight());
+
+        System.out.println("Resultant tree: (BreadthFirst)" + bst.traverseBreadthFirst().toString());
 
         System.out.println("Resultant tree: (Inorder)" + bst.traverseDepthFirstInorder().toString());
         System.out.println("Resultant tree: (Preorder)" + bst.traverseDepthFirstPreorder().toString());
