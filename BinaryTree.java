@@ -4,7 +4,7 @@ class BinaryTree {
     int number_of_items = 0;
     BinaryTree left_child;
     BinaryTree right_child;
-    
+
     public BinaryTree(int item) {
         this.item = item;
     }
@@ -13,7 +13,7 @@ class BinaryTree {
 
     }
 
-    public void traverseDepthFirstInorder() { //Left-Root-Right
+    public void traverseDepthFirstInorder() { // Left-Root-Right
 
     }
 
@@ -42,14 +42,14 @@ class BinarySearchTree extends BinaryTree {
     }
 
     void insert(int item) {
-        if(this.item < item) {
-            if(this.left_child == null) {
+        if (this.item < item) {
+            if (this.left_child == null) {
                 this.left_child = new BinaryTree(item);
             } else {
                 ((BinarySearchTree) this.left_child).insert(item);
             }
-        } else if(this.item > item) {
-            if(this.right_child == null) {
+        } else if (this.item > item) {
+            if (this.right_child == null) {
                 this.right_child = new BinaryTree(item);
             } else {
                 ((BinarySearchTree) this.right_child).insert(item);
@@ -60,7 +60,19 @@ class BinarySearchTree extends BinaryTree {
     }
 
     boolean search(int item) {
-        return false;
+        if (item > this.item) {
+            if (this.right_child != null)
+                return ((BinarySearchTree) this.right_child).search(item);
+            else
+                return false;
+        } else if (item < this.item) {
+            if (this.left_child != null)
+                return ((BinarySearchTree) this.left_child).search(item);
+            else
+                return false;
+        } else {
+            return true;
+        }
     }
 
     void delete(int item) {
@@ -69,7 +81,7 @@ class BinarySearchTree extends BinaryTree {
 }
 
 class BalancedBinarySearchTree extends BinarySearchTree {
-    
+
     public BalancedBinarySearchTree(int item) {
         super(item);
     }
