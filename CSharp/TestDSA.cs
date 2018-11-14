@@ -17,7 +17,8 @@ namespace CSharp{
         }
 
         static void testZeroOneArraySegregation() {
-            int[] input = { 0, 1, 0, 1, 0, 0, 1, 1, 0 };
+            //int[] input = { 0, 1, 0, 1, 0, 0, 1, 1, 0 };
+            int[] input = { 1, 1, 1 };
             Console.WriteLine("Input: " + String.Join(" ", input));
             int[] output = ZeroOneArraySegregation.segregate(input);
             Console.WriteLine("Output: " + String.Join(" ", output));
