@@ -5,8 +5,8 @@ namespace CSharp.LinkedList {
         class Node<T> {
 
             public T item { get; private set; }
-            public Node prev_node;
-            public Node next_node;
+            public Node<T> prev_node;
+            public Node<T> next_node;
 
             public Node(T item) {
                 this.item = item;
@@ -14,15 +14,15 @@ namespace CSharp.LinkedList {
 
         }
 
-        Node<t> head;
+        Node<T> head;
 
         public void insert(T item) {
-            Node new_node = new Node(item);
+            Node<T> new_node = new Node<T>(item);
             if(head != null) {
                 head.prev_node = new_node;
                 new_node.next_node = head;
             }
-            head = next_node;
+            head = new_node;
         }
 
         public void deleteHead() {
@@ -33,7 +33,7 @@ namespace CSharp.LinkedList {
         }
 
         public void delete(T item, bool delete_all_occurrences=true) {
-            Node iterative_node = head;
+            Node<T> iterative_node = head;
             while(iterative_node != null) {
                 if(iterative_node.item == item) {
                     if(iterative_node.prev_node != null) {
@@ -52,7 +52,7 @@ namespace CSharp.LinkedList {
 
         public List<T> traverse() {
             List<T> items = new List<T>();
-            Node iterative_node = head;
+            Node<T> iterative_node = head;
             while (iterative_node != null) {
                 items.Add(iterative_node.item);
             }
@@ -61,7 +61,7 @@ namespace CSharp.LinkedList {
 
         public int getSize() {
             int size = 0;
-            Node iterative_node = head;
+            Node<T> iterative_node = head;
             while (iterative_node != null) {
                 size++;
             }
