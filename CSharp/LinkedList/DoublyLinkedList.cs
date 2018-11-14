@@ -35,7 +35,7 @@ namespace CSharp.LinkedList {
         public void delete(T item, bool delete_all_occurrences=true) {
             Node<T> iterative_node = head;
             while(iterative_node != null) {
-                if(iterative_node.item == item) {
+                if(EqualityComparer<T>.Default.Equals(iterative_node.item, item)) {
                     if(iterative_node.prev_node != null) {
                         iterative_node.prev_node.next_node = iterative_node.next_node;
                     }
@@ -55,6 +55,7 @@ namespace CSharp.LinkedList {
             Node<T> iterative_node = head;
             while (iterative_node != null) {
                 items.Add(iterative_node.item);
+                iterative_node = iterative_node.next_node;
             }
             return items;
         }

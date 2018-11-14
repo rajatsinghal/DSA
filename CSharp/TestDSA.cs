@@ -1,11 +1,13 @@
 ﻿using System;
 using CSharp.LinkedList;
+using System.Collections.Generic;
 
 namespace CSharp{
     public class TestDSA {
 
         static void testDoublyLinkedList() {
-            DoublyLinkedList<int> dll = new DoublyLinkedList<int>();
+            Console.WriteLine("Test Doubly Linked List");
+            CSharp.LinkedList.DoublyLinkedList<int> dll = new CSharp.LinkedList.DoublyLinkedList<int>();
             dll.insert(2);
             dll.insert(1);
             dll.insert(5);
@@ -14,6 +16,7 @@ namespace CSharp{
         }
 
         public static void Main(string[] args) {
+            Console.WriteLine("Starting Test Suite!!");
             testDoublyLinkedList();
         }
     }
