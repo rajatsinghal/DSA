@@ -74,6 +74,10 @@ namespace CSharp.LinkedList {
             }
         }
 
+        public void reverse() {
+            
+        }
+
     }
 
 }
