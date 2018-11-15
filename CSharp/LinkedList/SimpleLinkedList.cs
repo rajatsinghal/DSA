@@ -2,13 +2,13 @@ using System.Collections.Generic;
 
 namespace CSharp.LinkedList {
 
-    public class LinkedList {
+    public class SimpleLinkedList {
 
-        public Node head;
+        Node head;
 
         class Node {
             
-            int item { public get; }
+            public int item;
 
             public Node next;
 
@@ -24,7 +24,7 @@ namespace CSharp.LinkedList {
             head = new_node;
         }
 
-        public int[] read() {
+        public List<int> read() {
             List<int> items = new List<int>();
             Node iterative_head = head;
             while(iterative_head != null) {
@@ -32,6 +32,10 @@ namespace CSharp.LinkedList {
                 iterative_head = iterative_head.next;
             }
             return items;
+        }
+
+        public void createLoopForTest() { //Need to improve
+            head.next.next.next.next.next = head.next.next;
         }
 
         public bool detectAndRemoveLoop() {
@@ -66,6 +70,7 @@ namespace CSharp.LinkedList {
                 }
                 Node loop_end_node = iterative_head;
                 loop_end_node.next = null; //Loop removed
+                return true;
             }
         }
 
