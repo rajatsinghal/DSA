@@ -67,6 +67,17 @@ namespace CSharp{
                 Console.WriteLine("{" + String.Join(", ", subset) + "}");
         }
 
+        static void testKnapsack() {
+            int[] values = { 60, 100, 120 };
+            int[] weights = { 10, 20, 30 };
+            int max_weight = 50;
+            Console.WriteLine(
+                "Max Knapsack value for values: {" + String.Join(", ", values) + 
+                "} with weights: {" + String.Join(", ", weights) + "} for max_weight: " + 
+                max_weight + " is: " + Knapsack.solve(values, weights, max_weight)
+            );
+        }
+
         public static void Main(string[] args) {
             Console.WriteLine("Starting Test Suite!!");
             //testDoublyLinkedList();
@@ -75,7 +86,8 @@ namespace CSharp{
             //testWordOccurencesCount();
             //testDetectAndRemoveLoop();
             //testLinkedListReversal();
-            testPowerSet();
+            //testPowerSet();
+            testKnapsack();
         }
     }
 }
