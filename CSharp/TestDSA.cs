@@ -32,11 +32,19 @@ namespace CSharp{
             Console.WriteLine("Output: " + String.Join(" ", output));
         }
 
+        static void testWordOccurencesCount() {
+            string input = "serkgransrajgsgrajgsrgra raj";
+            string word = "raj";
+            int occurences_count = WordOccurencesCount.countWordOccurences(input, word);
+            Console.WriteLine("Word: " + word + " found " + occurences_count + " times in string: " + input);
+        }
+
         public static void Main(string[] args) {
             Console.WriteLine("Starting Test Suite!!");
             //testDoublyLinkedList();
             //testZeroOneArraySegregation();
-            testZeroOneTwoArraySegregation();
+            //testZeroOneTwoArraySegregation();
+            testWordOccurencesCount();
         }
     }
 }
