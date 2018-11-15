@@ -59,6 +59,14 @@ namespace CSharp{
             Console.WriteLine("Linked List before reversal : " + String.Join(" ", ll.read()));
         }
 
+        static void testPowerSet() {
+            List<string> input = new List<string> { "a", "b", "c", "d" };
+            List<List<string>> power_set = PowerSet.generate(input);
+            Console.WriteLine("PowerSet: ");
+            foreach(List<string> subset in power_set)
+                Console.WriteLine("{" + String.Join(", ", subset) + "}");
+        }
+
         public static void Main(string[] args) {
             Console.WriteLine("Starting Test Suite!!");
             //testDoublyLinkedList();
@@ -66,7 +74,8 @@ namespace CSharp{
             //testZeroOneTwoArraySegregation();
             //testWordOccurencesCount();
             //testDetectAndRemoveLoop();
-            testLinkedListReversal();
+            //testLinkedListReversal();
+            testPowerSet();
         }
     }
 }
