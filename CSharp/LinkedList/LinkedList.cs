@@ -24,6 +24,16 @@ namespace CSharp.LinkedList {
             head = new_node;
         }
 
+        public int[] read() {
+            List<int> items = new List<int>();
+            Node iterative_head = head;
+            while(iterative_head != null) {
+                items.Add(iterative_head.item);
+                iterative_head = iterative_head.next;
+            }
+            return items;
+        }
+
         public bool detectAndRemoveLoop() {
             Node fast_node = head;
             Node slow_node = head;

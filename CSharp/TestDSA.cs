@@ -39,12 +39,23 @@ namespace CSharp{
             Console.WriteLine("Word: " + word + " found " + occurences_count + " times in string: " + input);
         }
 
+        static void testDetectAndRemoveLoop() {
+            LinkedList ll = new LinkedList();
+            int[] insert_vals = {50, 20, 15, 4, 10};
+            foreach(int insert_val in insert_vals)
+                ll.insert(insert_val);
+            ll.head.next.next.next.next.next = ll.head.next.next; // Creating a loop for testing  
+            ll.detectAndRemoveLoop();
+            Console.WriteLine("Linked List after removing loop : " + String.Join(" ", ll.read()));
+        }
+
         public static void Main(string[] args) {
             Console.WriteLine("Starting Test Suite!!");
             //testDoublyLinkedList();
             //testZeroOneArraySegregation();
             //testZeroOneTwoArraySegregation();
-            testWordOccurencesCount();
+            //testWordOccurencesCount();
+            testDetectAndRemoveLoop();
         }
     }
 }
