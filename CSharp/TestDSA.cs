@@ -68,9 +68,9 @@ namespace CSharp{
         }
 
         static void testKnapsack() {
-            int[] values = { 60, 100, 120 };
-            int[] weights = { 10, 20, 30 };
-            int max_weight = 50;
+            int[] values = { 60, 700, 820, 1000 };
+            int[] weights = { 10, 20, 30, 100 };
+            int max_weight = 150;
             Console.WriteLine(
                 "Max Knapsack value for values: {" + String.Join(", ", values) + 
                 "} with weights: {" + String.Join(", ", weights) + "} for max_weight: " + 
