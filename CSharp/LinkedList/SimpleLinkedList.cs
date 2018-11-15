@@ -75,7 +75,17 @@ namespace CSharp.LinkedList {
         }
 
         public void reverse() {
+            if(head == null || head.next == null)
+                return;
             
+            Node iterative_head = head.next;
+            head.next = null;
+            while(iterative_head != null) {
+                Node iterative_head_copy = iterative_head;
+                iterative_head = iterative_head.next;
+                iterative_head_copy.next = this.head;
+                this.head = iterative_head_copy;
+            }
         }
 
     }

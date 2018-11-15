@@ -49,13 +49,24 @@ namespace CSharp{
             Console.WriteLine("Linked List after removing loop : " + String.Join(" ", ll.read()));
         }
 
+        static void testLinkedListReversal() {
+            SimpleLinkedList ll = new SimpleLinkedList();
+            int[] insert_vals = { 50, 20, 15, 4, 10 };
+            foreach (int insert_val in insert_vals)
+                ll.insert(insert_val);
+            Console.WriteLine("Linked List before reversal : " + String.Join(" ", ll.read()));
+            ll.reverse();
+            Console.WriteLine("Linked List before reversal : " + String.Join(" ", ll.read()));
+        }
+
         public static void Main(string[] args) {
             Console.WriteLine("Starting Test Suite!!");
             //testDoublyLinkedList();
             //testZeroOneArraySegregation();
             //testZeroOneTwoArraySegregation();
             //testWordOccurencesCount();
-            testDetectAndRemoveLoop();
+            //testDetectAndRemoveLoop();
+            testLinkedListReversal();
         }
     }
 }
