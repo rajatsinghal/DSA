@@ -6,8 +6,20 @@ namespace CSharp.Problems {
 
     public class Knapsack {
 
-        public static List<int> solve(List<int> values, List<int> weights, int max_weight) {
-            
+        public static int solve(List<int> values, List<int> weights, int max_weight) {
+            return solveForItems(values, weights, max_weight, values.Count - 1);
+        }
+
+        static int solveForItems(List<int> values, List<int> weights, int max_weight, int limit) {
+            if(limit == 0 || max_weight == 0)
+                return 0;
+            if(weights[limit] > max_weight)
+                return solveForItems(values, weights, max_weight, limit - 1);
+            else {
+                int including_item = solveForItems(values, weights, max_weight - weights[limit], limit - 1) + weights[limit];
+                int excluding_item = solveForItems(values, weights, max_weight, limit - 1);
+                return System.Math.Max(including_item, excluding_item);
+            }
         }
 
     }
