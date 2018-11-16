@@ -11,6 +11,7 @@ namespace CSharp.Tree {
 
         public Node(int item) {
             this.item = item;
+            this.height = 1;
         }
 
         int left_child_height {
@@ -47,6 +48,14 @@ namespace CSharp.Tree {
             return ""+item;
         }
 
+        public void printInPreOrder() {
+            System.Console.WriteLine(item + "");
+            if(left_child != null)
+                left_child.printInPreOrder();
+            if(right_child != null)
+                right_child.printInPreOrder();
+        }
+
     }
 
     class AVLTree {
@@ -61,6 +70,7 @@ namespace CSharp.Tree {
             if(node == null) { //reached leaf level (Actual insertion)
                 node = new Node(item);
             }
+
             if(item < node.item) {
                 node.left_child = insertItemAtNode(node.left_child, item);
             } else if(item > node.item) {
@@ -117,7 +127,8 @@ namespace CSharp.Tree {
         }
 
         public void print() {
-            root.PrintPretty("", TreePrinter.NodePosition.center, true, false);
+            //root.PrintPretty("", TreePrinter.NodePosition.center, true, false);
+            root.printInPreOrder();
         }
 
     }
