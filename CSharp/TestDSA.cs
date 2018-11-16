@@ -78,6 +78,22 @@ namespace CSharp{
             );
         }
 
+        static void testLRU() {
+            LRUCache cache = new LRUCache(2);
+            cache.set(1, 10);
+            cache.set(2, 20);
+            Console.WriteLine("Value for the key: 1 is " + cache.get(1)); // Should return 10 
+            
+            cache.set(3, 30); // Evicts key 2 and store a key (3) with value 30 in the cache. 
+
+            Console.WriteLine("Value for the key: 2 is " + cache.get(2)); // Should return -1 (not found)
+            
+            cache.set(4, 40); // Evicts key 1 and store a key (4) with value 40 in the cache. 
+            Console.WriteLine("Value for the key: 1 is " + cache.get(1)); // Should return -1 (not found)
+            Console.WriteLine("Value for the key: 3 is " + cache.get(3)); // Should return 30 
+            Console.WriteLine("Value for the key: 4 is " + cache.get(4)); // Should return 40
+        }
+
         public static void Main(string[] args) {
             Console.WriteLine("Starting Test Suite!!");
             //testDoublyLinkedList();
@@ -87,7 +103,8 @@ namespace CSharp{
             //testDetectAndRemoveLoop();
             //testLinkedListReversal();
             //testPowerSet();
-            testKnapsack();
+            //testKnapsack();
+            testLRU();
         }
     }
 }

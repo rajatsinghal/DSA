@@ -6,12 +6,13 @@ namespace CSharp.Problems {
     public class LRUCache {
         
         class ListNode {
-            int key;
-            int item;
-            ListNode next;
-            ListNode prev;
+            public int key;
+            public int item;
+            public ListNode next;
+            public ListNode prev;
 
             public ListNode(int key, int item) {
+                this.key = key;
                 this.item = item;
             }
         }
@@ -24,7 +25,7 @@ namespace CSharp.Problems {
 
         public LRUCache(int capacity) {
             if(capacity == 0) {
-                throw new Exception("Cache can't be of zero capaciy!");
+                throw new System.Exception("Cache can't be of zero capaciy!");
             }
             this.capacity = capacity;
             this.items = new Dictionary<int, ListNode>();
@@ -54,13 +55,16 @@ namespace CSharp.Problems {
             }
         }
 
-        void moveNodeToFront(Node item_node) {
+        void moveNodeToFront(ListNode item_node) {
             ListNode prev_node = item_node.prev;
             ListNode next_node = item_node.next;
             if(prev_node != null)
                 prev_node.next = next_node;
-            if(next_node != null)
+            if(next_node != null) {
                 next_node.prev = prev_node;
+            } else {
+                this.tail = prev_node;
+            }
 
             item_node.prev = null;
             item_node.next = head;
