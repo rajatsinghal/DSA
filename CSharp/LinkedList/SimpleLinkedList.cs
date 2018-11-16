@@ -88,6 +88,10 @@ namespace CSharp.LinkedList {
             }
         }
 
+        public static void findIntersection(LinkedList<T> llist_1, LinkedList<T> llist_2) {
+            
+        }
+
     }
 
 }
