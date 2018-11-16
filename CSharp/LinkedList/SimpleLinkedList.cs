@@ -98,9 +98,17 @@ namespace CSharp.LinkedList {
             return length;
         }
 
-        public static bool findIntersection(SimpleLinkedList<T> llist_1, SimpleLinkedList<T> llist_2) {
+        public void attachIntersectionForTest(SimpleLinkedList another_list) {
+            Node iterating_head = this.head;
+            while (iterating_head.next != null) {
+                iterating_head = iterating_head.next;
+            }
+            iterating_head.next = another_list.head.next.next;
+        }
+
+        public static bool findIntersection(SimpleLinkedList llist_1, SimpleLinkedList llist_2) {
             int list_1_length = llist_1.getLength();
-            int list_2_length = llist_1.getLength();
+            int list_2_length = llist_2.getLength();
             Node list_1_head = llist_1.head;
             Node list_2_head = llist_2.head;
             if(list_1_length > list_2_length) {

@@ -95,6 +95,22 @@ namespace CSharp{
             Console.WriteLine("Linked List before reversal : " + String.Join(" ", ll.read()));
         }
 
+        static void testLinkedListIntersection() {
+            SimpleLinkedList ll1 = new SimpleLinkedList();
+            int[] ll1_vals = { 50, 20, 15, 4, 10 };
+            foreach (int insert_val in ll1_vals)
+                ll1.insert(insert_val);
+
+            SimpleLinkedList ll2 = new SimpleLinkedList();
+            int[] ll2_vals = { 150, 30, 19 };
+            foreach (int insert_val in ll2_vals)
+                ll2.insert(insert_val);
+            
+            Console.WriteLine("Before - Intersection Found: " + SimpleLinkedList.findIntersection(ll1, ll2));
+            ll2.attachIntersectionForTest(ll1);
+            Console.WriteLine("Before - Intersection Found: " + SimpleLinkedList.findIntersection(ll1, ll2));
+        }
+
         static void testPowerSet() {
             List<string> input = new List<string> { "a", "b", "c", "d" };
             List<List<string>> power_set = PowerSet.generate(input);
@@ -133,13 +149,14 @@ namespace CSharp{
         public static void Main(string[] args) {
             Console.WriteLine("Starting Test Suite!!");
             //testStack();
-            testKStacksInArray();
+            //testKStacksInArray();
             //testDoublyLinkedList();
             //testZeroOneArraySegregation();
             //testZeroOneTwoArraySegregation();
             //testWordOccurencesCount();
             //testDetectAndRemoveLoop();
             //testLinkedListReversal();
+            testLinkedListIntersection();
             //testPowerSet();
             //testKnapsack();
             //testLRU();
