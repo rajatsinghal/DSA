@@ -2,11 +2,11 @@ using System.Collections.Generic;
 
 namespace CSharp.Tree {
 
-    class Node {
+    class Node : TreePrinter.PrintableNode {
 
-        int item;
-        Node left_child;
-        Node right_child;
+        public int item;
+        public Node left_child;
+        public Node right_child;
         int height;
 
         public Node(int item) {
@@ -25,7 +25,7 @@ namespace CSharp.Tree {
             }
         }
 
-        int balance {
+        public int balance {
             get {
                 return left_child_height - right_child_height;
             }
@@ -33,6 +33,18 @@ namespace CSharp.Tree {
 
         public void updateHeight() {
             this.height = System.Math.Max(left_child_height, right_child_height) + 1;
+        }
+
+        public override TreePrinter.PrintableNode getLeft() {
+            return left_child;
+        }
+        
+        public override TreePrinter.PrintableNode getRight() {
+            return right_child;
+        }
+
+        public override string getText() {
+            return ""+item;
         }
 
     }
@@ -47,14 +59,14 @@ namespace CSharp.Tree {
 
         Node insertItemAtNode(Node node, int item) {
             if(node == null) { //reached leaf level (Actual insertion)
-                Node node = new Node(item);
+                node = new Node(item);
             }
             if(item < node.item) {
                 node.left_child = insertItemAtNode(node.left_child, item);
             } else if(item > node.item) {
                 node.right_child = insertItemAtNode(node.right_child, item);
             } else {
-                throw new System.Exception("Duplicate items not supported!");
+                return node;
             }
             node.updateHeight();
             
@@ -104,8 +116,8 @@ namespace CSharp.Tree {
             return left_child;
         }
 
-        public List<int> traversePreOrder() {
-            return null;
+        public void print() {
+            root.PrintPretty("", TreePrinter.NodePosition.center, true, false);
         }
 
     }

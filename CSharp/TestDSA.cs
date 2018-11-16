@@ -1,6 +1,7 @@
 ﻿using System;
 using CSharp.LinkedList;
 using CSharp.Problems;
+using CSharp.Tree;
 using System.Collections.Generic;
 
 namespace CSharp{
@@ -146,6 +147,14 @@ namespace CSharp{
             Console.WriteLine("Value for the key: 4 is " + cache.get(4)); // Should return 40
         }
 
+        static void testAVLTree() {
+            AVLTree tree = new AVLTree();
+            int[] insert_values = { 10, 20, 30, 40, 50, 25 };
+            foreach(int insert_value in insert_values)
+                tree.insert(insert_value);
+            tree.print();
+        }
+
         public static void Main(string[] args) {
             Console.WriteLine("Starting Test Suite!!");
             //testStack();
@@ -156,10 +165,11 @@ namespace CSharp{
             //testWordOccurencesCount();
             //testDetectAndRemoveLoop();
             //testLinkedListReversal();
-            testLinkedListIntersection();
+            //testLinkedListIntersection();
             //testPowerSet();
             //testKnapsack();
             //testLRU();
+            testAVLTree();
         }
     }
 }
