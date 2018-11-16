@@ -127,8 +127,8 @@ namespace CSharp.Tree {
         }
 
         public void print() {
-            //root.PrintPretty("", TreePrinter.NodePosition.center, true, false);
-            root.printInPreOrder();
+            root.PrintPretty("", TreePrinter.NodePosition.center, true, false);
+            //root.printInPreOrder();
         }
 
     }
