@@ -65,23 +65,24 @@ namespace CSharp.Problems {
             } else {
                 this.tail = prev_node;
             }
-
-            item_node.prev = null;
-            item_node.next = head;
-            head.prev = item_node;
-            head = item_node;
+            swapNodeWithHead(item_node);
         }
 
         void addItemAtFront(int key, int item) {
             ListNode new_node = new ListNode(key, item);
-            new_node.next = this.head;
-            if (this.head != null)
-                this.head.prev = new_node;
-            this.head = new_node;
-            if (this.tail == null)
+            swapNodeWithHead(new_node);
+            if(this.tail == null)
                 this.tail = this.head;
             items.Add(key, this.head);
             this.current_size++;
+        }
+
+        void swapNodeWithHead(ListNode node) {
+            node.prev = null;
+            node.next = this.head;
+            if(this.head != null)
+                this.head.prev = node;
+            this.head = node;
         }
 
         void removeLastNode() {
