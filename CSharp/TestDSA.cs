@@ -16,6 +16,28 @@ namespace CSharp{
             Console.WriteLine("peek: " + stack.peek());
         }
 
+        static void testKStacksInArray() {
+            int max_stacks_count = 3;
+            int max_size = 10;
+            CSharp.Stack.KStacksInArray ks = new CSharp.Stack.KStacksInArray(max_stacks_count, max_size);
+            ks.push(15, 2);
+            ks.push(45, 2);
+            ks.push(35, 2);
+
+            ks.push(17, 1);
+            ks.push(49, 1);
+            ks.push(39, 1);
+
+            ks.push(11, 0);
+            ks.push(9, 0);
+            ks.push(7, 0);
+
+            Console.WriteLine("Popped element from stack 2 is " + ks.pop(2));
+            Console.WriteLine("Popped element from stack 1 is " + ks.pop(1));
+            Console.WriteLine("Popped element from stack 0 is " + ks.pop(0));
+            Console.WriteLine("Popped element from stack 1 is " + ks.pop(2));
+        }
+
         static void testDoublyLinkedList() {
             Console.WriteLine("Test Doubly Linked List");
             CSharp.LinkedList.DoublyLinkedList<int> dll = new CSharp.LinkedList.DoublyLinkedList<int>();
@@ -106,7 +128,8 @@ namespace CSharp{
 
         public static void Main(string[] args) {
             Console.WriteLine("Starting Test Suite!!");
-            testStack();
+            //testStack();
+            testKStacksInArray();
             //testDoublyLinkedList();
             //testZeroOneArraySegregation();
             //testZeroOneTwoArraySegregation();

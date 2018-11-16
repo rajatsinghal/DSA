@@ -41,6 +41,7 @@ namespace CSharp.Stack {
             int item = items[stack_top_indexes[stack_index]];
             items[stack_top_indexes[stack_index]] = -1;
             stack_top_indexes[stack_index] = next_item_indexes[stack_top_indexes[stack_index]];
+            return item;
         }
 
     }
