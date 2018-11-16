@@ -11,15 +11,15 @@ namespace CSharp.Stack {
         }
 
         public void push(T item) {
-            if(items.Length == max_size)
-                throw System.Exception("Stack overflow!!");
+            if(top == max_size - 1)
+                throw new System.Exception("Stack overflow!!");
             this.top++;
             items[this.top] = item;
         }
 
         public T pop() {
             if(this.top == -1)
-                throw System.Exception("Stack is empty!!");
+                throw new System.Exception("Stack is empty!!");
             T item = items[this.top];
             this.top--;
             return item;
@@ -27,7 +27,7 @@ namespace CSharp.Stack {
 
         public T peek() {
             if(this.top == -1)
-                throw System.Exception("Stack is empty!!");
+                throw new System.Exception("Stack is empty!!");
             return items[this.top];
         }
 

@@ -6,6 +6,16 @@ using System.Collections.Generic;
 namespace CSharp{
     public class TestDSA {
 
+        static void testStack() {
+            CSharp.Stack.Stack<int> stack = new CSharp.Stack.Stack<int>(4);
+            int[] insert_items = { 3, 6, 8, 2 };
+            foreach(int item in insert_items)
+                stack.push(item);
+            Console.WriteLine("peek: " + stack.peek());
+            Console.WriteLine("pop: " + stack.pop());
+            Console.WriteLine("peek: " + stack.peek());
+        }
+
         static void testDoublyLinkedList() {
             Console.WriteLine("Test Doubly Linked List");
             CSharp.LinkedList.DoublyLinkedList<int> dll = new CSharp.LinkedList.DoublyLinkedList<int>();
@@ -96,6 +106,7 @@ namespace CSharp{
 
         public static void Main(string[] args) {
             Console.WriteLine("Starting Test Suite!!");
+            testStack();
             //testDoublyLinkedList();
             //testZeroOneArraySegregation();
             //testZeroOneTwoArraySegregation();
@@ -104,7 +115,7 @@ namespace CSharp{
             //testLinkedListReversal();
             //testPowerSet();
             //testKnapsack();
-            testLRU();
+            //testLRU();
         }
     }
 }
