@@ -50,23 +50,23 @@ namespace CSharp{
             dll.insert(1);
             dll.insert(5);
             dll.insert(3);
-            Console.WriteLine("Resultant Doubly Linked List: " + String.Join(" ", dll.traverse()));
+            Console.WriteLine("Resultant Doubly Linked List: " + System.String.Join(" ", dll.traverse()));
         }
 
         static void testZeroOneArraySegregation() {
             //int[] input = { 0, 1, 0, 1, 0, 0, 1, 1, 0 };
             int[] input = { 1, 1, 1 };
-            Console.WriteLine("Input: " + String.Join(" ", input));
+            Console.WriteLine("Input: " + System.String.Join(" ", input));
             int[] output = ZeroOneArraySegregation.segregate(input);
-            Console.WriteLine("Output: " + String.Join(" ", output));
+            Console.WriteLine("Output: " + System.String.Join(" ", output));
         }
 
         static void testZeroOneTwoArraySegregation() {
             //int[] input = { 2, 2, 2 };
             int[] input = { 0, 1, 0, 1, 2, 1, 0, 2, 1 };
-            Console.WriteLine("Input: " + String.Join(" ", input));
+            Console.WriteLine("Input: " + System.String.Join(" ", input));
             int[] output = ZeroOneTwoArraySegregation.segregate(input);
-            Console.WriteLine("Output: " + String.Join(" ", output));
+            Console.WriteLine("Output: " + System.String.Join(" ", output));
         }
 
         static void testWordOccurencesCount() {
@@ -83,7 +83,7 @@ namespace CSharp{
                 ll.insert(insert_val);
             ll.createLoopForTest();
             Console.WriteLine("Loop Found: " + ll.detectAndRemoveLoop());
-            Console.WriteLine("Linked List after removing loop : " + String.Join(" ", ll.read()));
+            Console.WriteLine("Linked List after removing loop : " + System.String.Join(" ", ll.read()));
         }
 
         static void testLinkedListReversal() {
@@ -91,9 +91,9 @@ namespace CSharp{
             int[] insert_vals = { 50, 20, 15, 4, 10 };
             foreach (int insert_val in insert_vals)
                 ll.insert(insert_val);
-            Console.WriteLine("Linked List before reversal : " + String.Join(" ", ll.read()));
+            Console.WriteLine("Linked List before reversal : " + System.String.Join(" ", ll.read()));
             ll.reverse();
-            Console.WriteLine("Linked List before reversal : " + String.Join(" ", ll.read()));
+            Console.WriteLine("Linked List before reversal : " + System.String.Join(" ", ll.read()));
         }
 
         static void testLinkedListIntersection() {
@@ -117,7 +117,7 @@ namespace CSharp{
             List<List<string>> power_set = PowerSet.generate(input);
             Console.WriteLine("PowerSet: ");
             foreach(List<string> subset in power_set)
-                Console.WriteLine("{" + String.Join(", ", subset) + "}");
+                Console.WriteLine("{" + System.String.Join(", ", subset) + "}");
         }
 
         static void testKnapsack() {
@@ -125,8 +125,8 @@ namespace CSharp{
             int[] weights = { 10, 20, 30, 100 };
             int max_weight = 150;
             Console.WriteLine(
-                "Max Knapsack value for values: {" + String.Join(", ", values) + 
-                "} with weights: {" + String.Join(", ", weights) + "} for max_weight: " + 
+                "Max Knapsack value for values: {" + System.String.Join(", ", values) + 
+                "} with weights: {" + System.String.Join(", ", weights) + "} for max_weight: " + 
                 max_weight + " is: " + Knapsack.solve(values, weights, max_weight)
             );
         }
@@ -160,6 +160,13 @@ namespace CSharp{
             kp.solve();
         }
 
+        static void testSubStringCount() {
+            string str = "frajawwfrajaterfrajatwraj";
+            string sub_str = "rajat";
+            int count = CSharp.String.SubStringCount.countSubString(str, sub_str);
+            Console.WriteLine("Substring: " + sub_str + " is found " + count + " times in " + str);
+        }
+
         public static void Main(string[] args) {
             Console.WriteLine("Starting Test Suite!!");
             //testStack();
@@ -175,7 +182,8 @@ namespace CSharp{
             //testKnapsack();
             //testLRU();
             //testAVLTree();
-            testKnightPath();
+            //testKnightPath();
+            testSubStringCount();
         }
     }
 }

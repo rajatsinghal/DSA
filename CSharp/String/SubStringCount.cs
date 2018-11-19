@@ -1,19 +1,11 @@
 namespace CSharp.String {
     class SubStringCount {
 
-        string str;
-        string sub_str;
-
-        public SubStringCount(string str, string sub_str) {
-            this.str = str;
-            this.sub_str = sub_str;
-        }
-
-        public int countSubString() {
+        public static int countSubString(string str, string sub_str) {
             int count = 0;
             int next_sub_str_index = 0;
             for(int i=0; i<str.Length; i++) {
-                if(str[next_sub_str_index] != sub_str[next_sub_str_index]) {
+                if(str[i] != sub_str[next_sub_str_index]) {
                     next_sub_str_index = 0;
                 } else {
                     next_sub_str_index++;
