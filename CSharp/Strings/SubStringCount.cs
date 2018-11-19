@@ -18,5 +18,13 @@ namespace CSharp.Strings {
             return count;
         }
 
+        public static bool isExpressionBalances(string expression) {
+            return false;
+        }
+
+        public static string reverseWordsInString(string str) {
+            return "";
+        } 
+
     }
 }
