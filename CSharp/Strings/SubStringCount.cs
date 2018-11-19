@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace CSharp.Strings {
     class StringProblems {
 
@@ -20,12 +22,18 @@ namespace CSharp.Strings {
 
         public static bool isExpressionBalanced(string expression) {
             CSharp.Stack.Stack<char> stack = new CSharp.Stack.Stack<char>(1000);
+            
+            Dictionary<char, char> mapping = new Dictionary<char, char>();
+            mapping.Add('{', '}');
+            mapping.Add('[', ']');
+            mapping.Add('(', ')');
+
             foreach(char letter in expression) {
                 if(letter == '{' || letter == '(' || letter == '[') {
                     stack.push(letter);
                 } else if(letter == '}' || letter == ')' || letter == ']') {
                     char last_keyword = stack.pop();
-                    if(last_keyword != letter) {
+                    if(mapping[last_keyword] != letter) {
                         return false;
                     }
                 }

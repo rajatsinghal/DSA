@@ -167,6 +167,12 @@ namespace CSharp{
             Console.WriteLine("Substring: " + sub_str + " is found " + count + " times in " + str);
         }
 
+        static void testExpressionBalanced() {
+            string expression = "[()]{}{[()()]()}";
+            bool is_balanced = CSharp.Strings.StringProblems.isExpressionBalanced(expression);
+            Console.WriteLine("Expression: " + expression + " is_balanced: " + is_balanced);
+        }
+
         public static void Main(string[] args) {
             Console.WriteLine("Starting Test Suite!!");
             //testStack();
@@ -183,7 +189,8 @@ namespace CSharp{
             //testLRU();
             //testAVLTree();
             //testKnightPath();
-            testSubStringCount();
+            //testSubStringCount();
+            testExpressionBalanced();
         }
     }
 }
