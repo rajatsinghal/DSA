@@ -31,5 +31,9 @@ namespace CSharp.Stack {
             return items[this.top];
         }
 
+        public bool isEmpty() {
+            return this.top == -1;
+        }
+
     }
 }

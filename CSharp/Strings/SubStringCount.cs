@@ -18,8 +18,19 @@ namespace CSharp.Strings {
             return count;
         }
 
-        public static bool isExpressionBalances(string expression) {
-            return false;
+        public static bool isExpressionBalanced(string expression) {
+            CSharp.Stack.Stack<char> stack = new CSharp.Stack.Stack<char>(1000);
+            foreach(char letter in expression) {
+                if(letter == '{' || letter == '(' || letter == '[') {
+                    stack.push(letter);
+                } else if(letter == '}' || letter == ')' || letter == ']') {
+                    char last_keyword = stack.pop();
+                    if(last_keyword != letter) {
+                        return false;
+                    }
+                }
+            }
+            return stack.isEmpty();
         }
 
         public static string reverseWordsInString(string str) {
