@@ -46,16 +46,15 @@ namespace CSharp.Strings {
             CSharp.Stack.Stack<char> stack = new CSharp.Stack.Stack<char>(1000);
             for(int i = 0; i < str.Length; i++) {
                 char letter = str[i];
-                if(letter != ' ') {
+                if(letter != ' ')
                     stack.push(letter);
-                    if(i == str.Length - 1) {
-                        while (!stack.isEmpty())
-                            result_str += stack.pop();
-                    }
-                } else {
-                    while(!stack.isEmpty()) 
+
+                if(letter == ' ' || i == str.Length - 1) {
+                    while (!stack.isEmpty()) {
                         result_str += stack.pop();
-                    result_str += " ";
+                    }
+                    if(letter == ' ')
+                        result_str += ' ';
                 }
             }
             return result_str;
