@@ -2,6 +2,7 @@
 using CSharp.LinkedList;
 using CSharp.Problems;
 using CSharp.Tree;
+using CSharp.Strings;
 using System.Collections.Generic;
 
 namespace CSharp{
@@ -169,8 +170,13 @@ namespace CSharp{
 
         static void testExpressionBalanced() {
             string expression = "[()]{}{[()()]()}";
-            bool is_balanced = CSharp.Strings.StringProblems.isExpressionBalanced(expression);
+            bool is_balanced = Strings.StringProblems.isExpressionBalanced(expression);
             Console.WriteLine("Expression: " + expression + " is_balanced: " + is_balanced);
+        }
+
+        static void testReverseWordsInString() {
+            string input = "Rajat Kumar Singhal";
+            Console.WriteLine("Word reversal of " + input + " is: " + Strings.StringProblems.reverseWordsInString(input));
         }
 
         public static void Main(string[] args) {
@@ -190,7 +196,8 @@ namespace CSharp{
             //testAVLTree();
             //testKnightPath();
             //testSubStringCount();
-            testExpressionBalanced();
+            //testExpressionBalanced();
+            testReverseWordsInString();
         }
     }
 }
