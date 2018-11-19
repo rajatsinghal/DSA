@@ -155,6 +155,11 @@ namespace CSharp{
             tree.print();
         }
 
+        static void testKnightPath() {
+            KnightPath kp = new KnightPath(6);
+            kp.solve();
+        }
+
         public static void Main(string[] args) {
             Console.WriteLine("Starting Test Suite!!");
             //testStack();
@@ -169,7 +174,8 @@ namespace CSharp{
             //testPowerSet();
             //testKnapsack();
             //testLRU();
-            testAVLTree();
+            //testAVLTree();
+            testKnightPath();
         }
     }
 }
