@@ -42,8 +42,19 @@ namespace CSharp.Strings {
         }
 
         public static string reverseWordsInString(string str) {
-            
-        } 
+            string result_str = "";
+            CSharp.Stack.Stack<char> stack = new CSharp.Stack.Stack<char>(1000);
+            foreach(char letter in str) {
+                if(letter != ' ') {
+                    stack.push(letter);
+                } else {
+                    while(!stack.isEmpty()) 
+                        result_str += stack.pop();
+                    result_str += " ";
+                }
+            }
+            return result_str;
+        }
 
     }
 }
