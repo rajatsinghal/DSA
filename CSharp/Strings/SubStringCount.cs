@@ -1,5 +1,5 @@
-namespace CSharp.String {
-    class SubStringCount {
+namespace CSharp.Strings {
+    class StringProblems {
 
         public static int countSubString(string str, string sub_str) {
             int count = 0;

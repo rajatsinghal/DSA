@@ -163,7 +163,7 @@ namespace CSharp{
         static void testSubStringCount() {
             string str = "frajawwfrajaterfrajatwraj";
             string sub_str = "rajat";
-            int count = CSharp.String.SubStringCount.countSubString(str, sub_str);
+            int count = CSharp.Strings.StringProblems.countSubString(str, sub_str);
             Console.WriteLine("Substring: " + sub_str + " is found " + count + " times in " + str);
         }
 
