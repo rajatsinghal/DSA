@@ -62,6 +62,22 @@ namespace CSharp.Strings {
 
         public static string reverseStringWords(string str) {
             string result_str = "";
+            List<string> words = new List<string>();
+            string current_word = "";
+            for(int i = 0; i < str.Length; i++) {
+                char letter = str[i];
+                if(letter != ' ')
+                    current_word += letter;
+                if((letter == ' ' && i != 0) || i == str.Length - 1) {
+                    words.Add(current_word);
+                    current_word = "";
+                }
+            }
+            for(int j = words.Count - 1; j >= 0; j--) {
+                result_str += words[j];
+                if(j != 0)
+                    result_str += " ";
+            }
             return result_str;
         }
 

@@ -176,7 +176,8 @@ namespace CSharp{
 
         static void testReverseWordsInString() {
             string input = "Rajat Kumar Singhal";
-            Console.WriteLine("Word reversal of " + input + " is: " + Strings.StringProblems.reverseWordsInString(input));
+            //Console.WriteLine("Word reversal of " + input + " is: " + Strings.StringProblems.reverseWordsInString(input));
+            Console.WriteLine("Word reversal of " + input + " is: " + Strings.StringProblems.reverseStringWords(input));
         }
 
         public static void Main(string[] args) {
