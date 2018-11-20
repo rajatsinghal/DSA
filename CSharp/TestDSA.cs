@@ -180,6 +180,14 @@ namespace CSharp{
             Console.WriteLine("Word reversal of " + input + " is: " + Strings.StringProblems.reverseStringWords(input));
         }
 
+        static void testAllSubstrings() {
+            string str = "rajat";
+            List<string> substrings = StringProblems.getAllSubstrings(str);
+            Console.WriteLine(substrings.Count + " substrings for " + str + " are: ");
+            foreach(string substr in substrings)
+                Console.Write("[" + substr + "]");
+        }
+
         public static void Main(string[] args) {
             Console.WriteLine("Starting Test Suite!!");
             //testStack();
@@ -198,7 +206,8 @@ namespace CSharp{
             //testKnightPath();
             //testSubStringCount();
             //testExpressionBalanced();
-            testReverseWordsInString();
+            //testReverseWordsInString();
+            testAllSubstrings();
         }
     }
 }

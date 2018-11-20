@@ -82,7 +82,18 @@ namespace CSharp.Strings {
         }
 
         public static List<string> getAllSubstrings(string str) {
-            
+            List<string> substrings = new List<string>() { };
+            if(str.Length > 0) {
+                string child_str = str.Substring(1);
+                List<string> child_substrings = getAllSubstrings(child_str);
+                foreach(string s in child_substrings) {
+                    substrings.Add(s);
+                    substrings.Add(str[0] + s);
+                }
+            } else {
+                substrings.Add("");
+            }
+            return substrings;
         }
 
     }
