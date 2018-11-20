@@ -3,6 +3,7 @@ using CSharp.LinkedList;
 using CSharp.Problems;
 using CSharp.Tree;
 using CSharp.Strings;
+using CSharp.Sort;
 using System.Collections.Generic;
 
 namespace CSharp{
@@ -188,6 +189,12 @@ namespace CSharp{
                 Console.Write("[" + substr + "]");
         }
 
+        static void testQuickSort() {
+            int[] input = { -3, 1, 4, 7, 2, -2, 12, 0 };
+            Console.WriteLine("Input for QuickSort: " + input.ToString());
+            Console.WriteLine("Output: " + QuickSort.sort(input).ToString());
+        }
+
         public static void Main(string[] args) {
             Console.WriteLine("Starting Test Suite!!");
             //testStack();
@@ -207,7 +214,8 @@ namespace CSharp{
             //testSubStringCount();
             //testExpressionBalanced();
             //testReverseWordsInString();
-            testAllSubstrings();
+            //testAllSubstrings();
+            testQuickSort();
         }
     }
 }
