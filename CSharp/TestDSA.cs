@@ -190,9 +190,9 @@ namespace CSharp{
         }
 
         static void testQuickSort() {
-            int[] input = { -3, 1, 4, 7, 2, -2, 12, 0 };
-            Console.WriteLine("Input for QuickSort: " + input.ToString());
-            Console.WriteLine("Output: " + QuickSort.sort(input).ToString());
+            List<int> input = new List<int> { -3, 1, 4, 7, 2, -2, 12, 0 };
+            Console.WriteLine("Input for QuickSort: " + String.Join(", ", input));
+            Console.WriteLine("Output: " + String.Join(", ", QuickSort.sort(input)));
         }
 
         public static void Main(string[] args) {
