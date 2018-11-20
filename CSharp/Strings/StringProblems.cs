@@ -81,5 +81,9 @@ namespace CSharp.Strings {
             return result_str;
         }
 
+        public static List<string> getAllSubstrings(string str) {
+            
+        }
+
     }
 }
