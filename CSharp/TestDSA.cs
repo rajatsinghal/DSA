@@ -202,6 +202,10 @@ namespace CSharp{
             Console.WriteLine("Result: " + SubsetWithSum.exists(set, sum));
         }
 
+        static void testNQueen() {
+            NQueens.solve(4);
+        }
+
         public static void Main(string[] args) {
             Console.WriteLine("Starting Test Suite!!");
             //testStack();
@@ -223,7 +227,8 @@ namespace CSharp{
             //testReverseWordsInString();
             //testAllSubstrings();
             //testQuickSort();
-            testSubsetSum();
+            //testSubsetSum();
+            testNQueen();
         }
     }
 }
