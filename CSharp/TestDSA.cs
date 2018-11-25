@@ -195,6 +195,13 @@ namespace CSharp{
             Console.WriteLine("Output: " + String.Join(", ", QuickSort.sort(input)));
         }
 
+        static void testSubsetSum() {
+            int[] set = { 3, 34, 4, 12, 5, 2 };
+            int sum = 23;
+            Console.WriteLine("Testing if subset with sum: " + sum + " exists? in set: " + String.Join(", ", set));
+            Console.WriteLine("Result: " + SubsetWithSum.exists(set, sum));
+        }
+
         public static void Main(string[] args) {
             Console.WriteLine("Starting Test Suite!!");
             //testStack();
@@ -215,7 +222,8 @@ namespace CSharp{
             //testExpressionBalanced();
             //testReverseWordsInString();
             //testAllSubstrings();
-            testQuickSort();
+            //testQuickSort();
+            testSubsetSum();
         }
     }
 }
