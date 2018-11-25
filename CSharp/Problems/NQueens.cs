@@ -1,6 +1,6 @@
 namespace CSharp.Problems {
     class NQueens {
-
+ 
         public int[,] solve(int board_size) {
             int[,] board = new int[board_size, board_size];
             for(int i=0; i<board_size; i++)
