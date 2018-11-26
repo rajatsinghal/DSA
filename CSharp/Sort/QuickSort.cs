@@ -32,5 +32,9 @@ namespace CSharp.Sort {
             return result_items;
         }
 
+        public static int[] sort(int[] items) {
+            return items;
+        }
+
     }
 }
