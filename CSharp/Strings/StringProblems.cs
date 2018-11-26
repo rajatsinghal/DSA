@@ -96,5 +96,9 @@ namespace CSharp.Strings {
             return substrings;
         }
 
+        public static string getLongestCommonSubsequence(string str1, string str2) {
+            
+        }
+
     }
 }
