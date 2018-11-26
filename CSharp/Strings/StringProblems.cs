@@ -97,8 +97,24 @@ namespace CSharp.Strings {
         }
 
         public static string getLongestCommonSubsequence(string str1, string str2) {
-            
+            return getLongestCommonSubsequenceForIndex(str1, str2, str1.Length-1, str2.Length-1);
         }
 
+        public static string getLongestCommonSubsequenceForIndex(string str1, string str2, int str1_index, int str2_index) {
+            if(str1_index < 0 || str2_index < 0)
+                return "";
+
+            if(str1[str1_index] == str2[str2_index]) {
+                return getLongestCommonSubsequenceForIndex(str1, str2, str1_index - 1, str2_index - 1) + str2[str2_index];
+            } else {
+                string leaving_str1_last_char = getLongestCommonSubsequenceForIndex(str1, str2, str1_index - 1, str2_index);
+                string leaving_str2_last_char = getLongestCommonSubsequenceForIndex(str1, str2, str1_index, str2_index - 1);
+
+                if(leaving_str1_last_char.Length > leaving_str2_last_char.Length)
+                    return leaving_str1_last_char;
+                else
+                    return leaving_str2_last_char;
+            }
+        }
     }
 }

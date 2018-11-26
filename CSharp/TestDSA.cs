@@ -206,6 +206,12 @@ namespace CSharp{
             NQueens.solve(4);
         }
 
+        static void testLongestCommonSubsequence() {
+            string str1 = "ABCDGH";
+            string str2 = "AEDFHR";
+            Console.WriteLine("Longest common subsequence between " + str1 + " and str2 is: " + StringProblems.getLongestCommonSubsequence(str1, str2));
+        }
+
         public static void Main(string[] args) {
             Console.WriteLine("Starting Test Suite!!");
             //testStack();
@@ -228,7 +234,8 @@ namespace CSharp{
             //testAllSubstrings();
             //testQuickSort();
             //testSubsetSum();
-            testNQueen();
+            //testNQueen();
+            testLongestCommonSubsequence();
         }
     }
 }
