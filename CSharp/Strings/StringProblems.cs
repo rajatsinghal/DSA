@@ -97,24 +97,37 @@ namespace CSharp.Strings {
         }
 
         public static string getLongestCommonSubsequence(string str1, string str2) {
-            return getLongestCommonSubsequenceForIndex(str1, str2, str1.Length-1, str2.Length-1);
+            string[,] pre_calculated_soln = new string[str1.Length, str2.Length];
+            for(int i = 0; i < pre_calculated_soln.GetLength(0) - 1; i++) {
+                for(int j = 0; j < pre_calculated_soln.GetLength(1) - 1; j++) {
+                    pre_calculated_soln[i, j] = null;
+                }
+            }
+            return getLongestCommonSubsequenceForIndex(str1, str2, str1.Length-1, str2.Length-1, pre_calculated_soln);
         }
 
-        public static string getLongestCommonSubsequenceForIndex(string str1, string str2, int str1_index, int str2_index) {
+        public static string getLongestCommonSubsequenceForIndex(string str1, string str2, int str1_index, int str2_index, string[,] pre_calculated_soln) {
             if(str1_index < 0 || str2_index < 0)
                 return "";
 
+            if(pre_calculated_soln[str1_index, str2_index] != null)
+                return pre_calculated_soln[str1_index, str2_index];
+
+            string result;
             if(str1[str1_index] == str2[str2_index]) {
-                return getLongestCommonSubsequenceForIndex(str1, str2, str1_index - 1, str2_index - 1) + str2[str2_index];
+                result = getLongestCommonSubsequenceForIndex(str1, str2, str1_index - 1, str2_index - 1, pre_calculated_soln) + str2[str2_index];
             } else {
-                string leaving_str1_last_char = getLongestCommonSubsequenceForIndex(str1, str2, str1_index - 1, str2_index);
-                string leaving_str2_last_char = getLongestCommonSubsequenceForIndex(str1, str2, str1_index, str2_index - 1);
+                string leaving_str1_last_char = getLongestCommonSubsequenceForIndex(str1, str2, str1_index - 1, str2_index, pre_calculated_soln);
+                string leaving_str2_last_char = getLongestCommonSubsequenceForIndex(str1, str2, str1_index, str2_index - 1, pre_calculated_soln);
 
                 if(leaving_str1_last_char.Length > leaving_str2_last_char.Length)
-                    return leaving_str1_last_char;
+                    result = leaving_str1_last_char;
                 else
-                    return leaving_str2_last_char;
+                    result = leaving_str2_last_char;
             }
+
+            pre_calculated_soln[str1_index, str2_index] = result;
+            return result;
         }
     }
 }
