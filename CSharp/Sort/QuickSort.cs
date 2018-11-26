@@ -33,6 +33,28 @@ namespace CSharp.Sort {
         }
 
         public static int[] sort(int[] items) {
+            return sortArrayBetweenIndices(items, 0, items.Length-1);
+        }
+
+        public static int[] sortArrayBetweenIndices(int[] items, int start_index, int end_index) {
+            //System.Console.WriteLine("sortArrayBetweenIndices called start_index: " + start_index + " end_index: " + end_index + " Items: " + System.String.Join(", ", items));
+            int pivot_item = items[end_index];
+            int correct_pivot_pos = start_index;
+            for(int i = start_index; i <= end_index; i++) {
+                if(items[i] <= pivot_item) {
+                    if(correct_pivot_pos != i) {
+                        int temp = items[correct_pivot_pos];
+                        items[correct_pivot_pos] = items[i];
+                        items[i] = temp;
+                    }
+                    if(i < end_index)
+                        correct_pivot_pos++;
+                }
+            }
+            if(correct_pivot_pos - start_index > 1)
+                items = sortArrayBetweenIndices(items, start_index, correct_pivot_pos - 1);
+            if(end_index - correct_pivot_pos > 1)
+                items = sortArrayBetweenIndices(items, correct_pivot_pos - 1, end_index);
             return items;
         }
 

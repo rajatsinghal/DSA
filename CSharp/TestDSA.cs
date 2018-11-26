@@ -190,7 +190,8 @@ namespace CSharp{
         }
 
         static void testQuickSort() {
-            List<int> input = new List<int> { -3, 1, 4, 7, 2, -2, 12, 0 };
+            //List<int> input = new List<int> { -3, 1, 4, 7, 2, -2, 12, 0 };
+            int[] input = new int[] { -3, 1, 4, 7, 2, -2, 12, 0 };
             Console.WriteLine("Input for QuickSort: " + String.Join(", ", input));
             Console.WriteLine("Output: " + String.Join(", ", QuickSort.sort(input)));
         }
@@ -232,10 +233,10 @@ namespace CSharp{
             //testExpressionBalanced();
             //testReverseWordsInString();
             //testAllSubstrings();
-            //testQuickSort();
+            testQuickSort();
             //testSubsetSum();
             //testNQueen();
-            testLongestCommonSubsequence();
+            //testLongestCommonSubsequence();
         }
     }
 }
