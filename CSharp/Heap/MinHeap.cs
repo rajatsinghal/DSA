@@ -87,14 +87,14 @@ namespace CSharp.Heap {
             int current_root_item = items[0];
             items[0] = items[getLastNodeIndex() - 1];
             this.length--;
-            heapify();
+            heapifyNode(1);
             return current_root_item;
         }
 
         public int swapRoot(int new_root_item) {
             int current_root_item = items[0];
             items[0] = new_root_item;
-            heapify();
+            heapifyNode(1);
             return current_root_item;
         }
 
