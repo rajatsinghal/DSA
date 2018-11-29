@@ -58,7 +58,7 @@ namespace CSharp.Heap {
 
         public void heapify() {
             int i = getLastParentIndex();
-            while (i >= 0) {
+            while (i > 0) {
                 heapifyNode(i);
                 i--;
             }
@@ -67,6 +67,7 @@ namespace CSharp.Heap {
         public void heapifyNode(int root_index) {
             int left_child_index = getLeftChildIndex(root_index);
             int right_child_index = getRightChildIndex(root_index);
+
 
             if(left_child_index != -1 || right_child_index != -1) {
                 int min_child_index;

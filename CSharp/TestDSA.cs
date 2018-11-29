@@ -213,6 +213,13 @@ namespace CSharp{
             Console.WriteLine("Longest common subsequence between " + str1 + " and str2 is: " + StringProblems.getLongestCommonSubsequence(str1, str2));
         }
 
+        static void testKSortedArray() {
+            int[] input = { 6, 5, 3, 2, 8, 10, 9 };
+            int k = 3;
+            int[] output = KSortedArray.sort(input, k);
+            Console.WriteLine("Sorted result for array: " + String.Join(", ", input) + " sorted to " + k + " positions is: " + String.Join(", ", output));
+        }
+
         public static void Main(string[] args) {
             Console.WriteLine("Starting Test Suite!!");
             //testStack();
@@ -233,10 +240,11 @@ namespace CSharp{
             //testExpressionBalanced();
             //testReverseWordsInString();
             //testAllSubstrings();
-            testQuickSort();
+            //testQuickSort();
             //testSubsetSum();
             //testNQueen();
             //testLongestCommonSubsequence();
+            testKSortedArray();
         }
     }
 }

@@ -20,7 +20,7 @@ namespace CSharp.Sort {
                 if(heap_index >= items.Length)
                     sorted_items[result_index] = min_heap.extractRoot();
                 else {
-                    sorted_items[result_index] = min_heap.swapRoot(heap_index);
+                    sorted_items[result_index] = min_heap.swapRoot(items[heap_index]);
                     heap_index++;
                 }
                 result_index++;
