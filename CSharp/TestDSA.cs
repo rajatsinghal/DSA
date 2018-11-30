@@ -117,6 +117,7 @@ namespace CSharp{
         static void testPowerSet() {
             List<string> input = new List<string> { "a", "b", "c", "d" };
             List<List<string>> power_set = PowerSet.generate(input);
+            //List<List<string>> power_set = PowerSet.generateUsingBitwise(input);
             Console.WriteLine("PowerSet: ");
             foreach(List<string> subset in power_set)
                 Console.WriteLine("{" + System.String.Join(", ", subset) + "}");
@@ -231,7 +232,7 @@ namespace CSharp{
             //testDetectAndRemoveLoop();
             //testLinkedListReversal();
             //testLinkedListIntersection();
-            //testPowerSet();
+            testPowerSet();
             //testKnapsack();
             //testLRU();
             //testAVLTree();
@@ -244,7 +245,7 @@ namespace CSharp{
             //testSubsetSum();
             //testNQueen();
             //testLongestCommonSubsequence();
-            testKSortedArray();
+            //testKSortedArray();
         }
     }
 }

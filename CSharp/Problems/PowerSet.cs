@@ -21,7 +21,21 @@ namespace CSharp.Problems {
         }
 
         public static List<List<string>> generateUsingBitwise(List<string> set) {
-            
+            List<List<string>> power_set = new List<List<string>>();
+            int set_size = set.Count;
+            int powerset_size = 1 << set_size;
+            for(int powerset_index = 0; powerset_index < powerset_size; powerset_index++) {
+                List<string> subset = new List<string>();
+                int char_index = 0;
+                for(int i=powerset_index; i>0; i=i>>1) {
+                    if((i&1) == 1) {
+                        subset.Add(set[char_index]);
+                    }
+                    char_index++;
+                }
+                power_set.Add(subset);
+            }
+            return power_set;
         }
         
     }
