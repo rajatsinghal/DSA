@@ -228,15 +228,15 @@ namespace CSharp{
             //     {0,1,1,1,0},
             //     {0,1,1,1,0},
             // };
-            // int[,] input = {
-            //     {0,0,0,0,1,0},
-            //     {0,0,0,0,1,0},
-            //     {0,0,1,0,0,0}
-            // };
             int[,] input = {
-                {0,1,0,0},
-                {0,0,1,0}
+                {0,0,0,0,1,0},
+                {0,0,0,0,1,0},
+                {0,0,1,0,0,0}
             };
+            // int[,] input = {
+            //     {0,1,0,0},
+            //     {0,0,1,0}
+            // };
             TurnOffLights prob = new TurnOffLights(input);
             Console.WriteLine("Solution for min time: " + prob.solve());
         }

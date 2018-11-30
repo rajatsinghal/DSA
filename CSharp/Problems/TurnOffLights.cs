@@ -38,15 +38,12 @@ namespace CSharp.Problems {
             int left_exit_time;
             int right_exit_time;
             if(enter_direction == 'L') {
-                //Console.WriteLine("right_most_lights[floor_index]: " + right_most_lights[floor_index]);
                 left_exit_time = right_most_lights[floor_index] * 2;
                 right_exit_time = (floor_plan.GetLength(1) - 1);
             } else {
                 right_exit_time = (floor_plan.GetLength(1) - left_most_lights[floor_index] - 1) * 2;
                 left_exit_time = (floor_plan.GetLength(1) - 1);
             }
-
-            Console.WriteLine("For floor: " + floor_index + " with enter_direction: " + enter_direction + " left_exit_time: " + left_exit_time + ", right_exit_time: " + right_exit_time);
 
             return Math.Min(
                 (left_exit_time + 1 + solveFromFloorIndex(floor_index + 1, 'L')), 
