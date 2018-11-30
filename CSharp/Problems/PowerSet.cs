@@ -19,6 +19,10 @@ namespace CSharp.Problems {
             }
             return power_set;
         }
+
+        public static List<List<string>> generateUsingBitwise(List<string> set) {
+            
+        }
         
     }
 }
