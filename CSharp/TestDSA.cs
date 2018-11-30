@@ -221,6 +221,17 @@ namespace CSharp{
             Console.WriteLine("Sorted result for array: " + String.Join(", ", input) + " sorted to " + k + " positions is: " + String.Join(", ", output));
         }
 
+        static void testTurnLightsOff() {
+            int[,] input = {
+                {0,1,1,1,0},
+                {0,1,1,1,0},
+                {0,1,1,1,0},
+                {0,1,1,1,0}
+            };
+            TurnOffLights prob = new TurnOffLights(input);
+            Console.WriteLine("Solution for min time: " + prob.solve());
+        }
+
         public static void Main(string[] args) {
             Console.WriteLine("Starting Test Suite!!");
             //testStack();
@@ -232,7 +243,7 @@ namespace CSharp{
             //testDetectAndRemoveLoop();
             //testLinkedListReversal();
             //testLinkedListIntersection();
-            testPowerSet();
+            //testPowerSet();
             //testKnapsack();
             //testLRU();
             //testAVLTree();
@@ -246,6 +257,7 @@ namespace CSharp{
             //testNQueen();
             //testLongestCommonSubsequence();
             //testKSortedArray();
+            testTurnLightsOff();
         }
     }
 }

@@ -31,22 +31,24 @@ namespace CSharp.Problems {
         }
 
         public int solveFromFloorIndex(int floor_index, char enter_direction) {
+            bool is_last_floor = floor_index == (floor_plan.GetLength(0) - 1);
+
             int left_exit_time;
             int right_exit_time;
             if(enter_direction == 'L') {
                 left_exit_time = right_most_lights[floor_index] * 2;
-                right_exit_time = floor_plan.GetLength(1) - 1;
+                right_exit_time = is_last_floor ? right_most_lights[floor_index] : (floor_plan.GetLength(1) - 1);
             } else {
                 right_exit_time = left_most_lights[floor_index] * 2;
-                left_exit_time = floor_plan.GetLength(1) - 1;
+                left_exit_time = is_last_floor ? left_most_lights[floor_index] : (floor_plan.GetLength(1) - 1);
             }
 
-            if(floor_index == floor_plan.GetLength(0) - 1) {
+            if(is_last_floor) {
                 return Math.Max(left_exit_time, right_exit_time);
             } else {
                 return Math.Max(
-                    (left_exit_time + solveFromFloorIndex(floor_index - 1, 'L')), 
-                    (right_exit_time + solveFromFloorIndex(floor_index - 1, 'R'))
+                    (left_exit_time + 1 + solveFromFloorIndex(floor_index + 1, 'L')), 
+                    (right_exit_time + 1 + solveFromFloorIndex(floor_index + 1, 'R'))
                 );
             }
         }
