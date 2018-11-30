@@ -31,29 +31,27 @@ namespace CSharp.Problems {
         }
 
         public int solveFromFloorIndex(int floor_index, char enter_direction) {
-            bool is_last_floor = floor_index == (floor_plan.GetLength(0) - 1);
+            if(floor_index == (floor_plan.GetLength(0) - 1)) {
+                return enter_direction == 'L' ? right_most_lights[floor_index] : (floor_plan.GetLength(1) - left_most_lights[floor_index] - 1);
+            }
 
             int left_exit_time;
             int right_exit_time;
             if(enter_direction == 'L') {
+                //Console.WriteLine("right_most_lights[floor_index]: " + right_most_lights[floor_index]);
                 left_exit_time = right_most_lights[floor_index] * 2;
-                right_exit_time = is_last_floor ? right_most_lights[floor_index] : (floor_plan.GetLength(1) - 1);
+                right_exit_time = (floor_plan.GetLength(1) - 1);
             } else {
-                right_exit_time = (floor_plan.GetLength(1) - left_most_lights[floor_index]) * 2;
-                left_exit_time = is_last_floor ? (floor_plan.GetLength(1) - left_most_lights[floor_index]) : (floor_plan.GetLength(1) - 1);
+                right_exit_time = (floor_plan.GetLength(1) - left_most_lights[floor_index] - 1) * 2;
+                left_exit_time = (floor_plan.GetLength(1) - 1);
             }
 
-            Console.WriteLine("For floor: " + floor_index + " with enter_direction: " + enter_direction + " left_exit_time: " + left_exit_time + " ,right_exit_time: " + right_exit_time);
+            Console.WriteLine("For floor: " + floor_index + " with enter_direction: " + enter_direction + " left_exit_time: " + left_exit_time + ", right_exit_time: " + right_exit_time);
 
-            if(is_last_floor) {
-                return Math.Min(left_exit_time, right_exit_time);
-            } else {
-                return Math.Min(
-                    (left_exit_time + 1 + solveFromFloorIndex(floor_index + 1, 'L')), 
-                    (right_exit_time + 1 + solveFromFloorIndex(floor_index + 1, 'R'))
-                );
-            }
+            return Math.Min(
+                (left_exit_time + 1 + solveFromFloorIndex(floor_index + 1, 'L')), 
+                (right_exit_time + 1 + solveFromFloorIndex(floor_index + 1, 'R'))
+            );
         }
-
     }
 }
