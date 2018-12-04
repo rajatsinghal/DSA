@@ -2,63 +2,63 @@ using System.Collections.Generic;
 
 namespace CSharp.Tree {
 
-    class Node : TreePrinter.PrintableNode {
-
-        public int item;
-        public Node left_child;
-        public Node right_child;
-        int height;
-
-        public Node(int item) {
-            this.item = item;
-            this.height = 1;
-        }
-
-        int left_child_height {
-            get {
-                return left_child != null ? left_child.height : 0;
-            }
-        }
-
-        int right_child_height {
-            get {
-                return right_child != null ? right_child.height : 0;
-            }
-        }
-
-        public int balance {
-            get {
-                return left_child_height - right_child_height;
-            }
-        }
-
-        public void updateHeight() {
-            this.height = System.Math.Max(left_child_height, right_child_height) + 1;
-        }
-
-        public override TreePrinter.PrintableNode getLeft() {
-            return left_child;
-        }
-        
-        public override TreePrinter.PrintableNode getRight() {
-            return right_child;
-        }
-
-        public override string getText() {
-            return ""+item;
-        }
-
-        public void printInPreOrder() {
-            System.Console.WriteLine(item + "");
-            if(left_child != null)
-                left_child.printInPreOrder();
-            if(right_child != null)
-                right_child.printInPreOrder();
-        }
-
-    }
-
     class AVLTree {
+
+        class Node : TreePrinter.PrintableNode {
+
+            public int item;
+            public Node left_child;
+            public Node right_child;
+            int height;
+
+            public Node(int item) {
+                this.item = item;
+                this.height = 1;
+            }
+
+            int left_child_height {
+                get {
+                    return left_child != null ? left_child.height : 0;
+                }
+            }
+
+            int right_child_height {
+                get {
+                    return right_child != null ? right_child.height : 0;
+                }
+            }
+
+            public int balance {
+                get {
+                    return left_child_height - right_child_height;
+                }
+            }
+
+            public void updateHeight() {
+                this.height = System.Math.Max(left_child_height, right_child_height) + 1;
+            }
+
+            public override TreePrinter.PrintableNode getLeft() {
+                return left_child;
+            }
+
+            public override TreePrinter.PrintableNode getRight() {
+                return right_child;
+            }
+
+            public override string getText() {
+                return "" + item;
+            }
+
+            public void printInPreOrder() {
+                System.Console.WriteLine(item + "");
+                if (left_child != null)
+                    left_child.printInPreOrder();
+                if (right_child != null)
+                    right_child.printInPreOrder();
+            }
+
+        }
 
         Node root;
 
