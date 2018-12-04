@@ -252,6 +252,23 @@ namespace CSharp{
             Console.WriteLine("The minimum depth of " + "binary tree is : " + tree.getMinDepth());
         }
 
+        static void testConvertBinaryTreeIntoSumTree() {
+            BinaryTree tree = new BinaryTree();
+            tree.root = new BinaryTree.Node(10);
+            tree.root.left_child = new BinaryTree.Node(-2);
+            tree.root.right_child = new BinaryTree.Node(6);
+            tree.root.left_child.left_child = new BinaryTree.Node(8);
+            tree.root.left_child.right_child = new BinaryTree.Node(-4);
+            tree.root.right_child.left_child = new BinaryTree.Node(7);
+            tree.root.right_child.right_child = new BinaryTree.Node(5);
+
+            Console.WriteLine("Orignal Tree:");
+            tree.print();
+            tree.convertIntoSumTree();
+            Console.WriteLine("Converted sum tree:");
+            tree.print();
+        }
+
         public static void Main(string[] args) {
             Console.WriteLine("Starting Test Suite!!");
             //testStack();
@@ -278,7 +295,8 @@ namespace CSharp{
             //testLongestCommonSubsequence();
             //testKSortedArray();
             //testTurnLightsOff();
-            testBinaryTreeMinDepth();
+            //testBinaryTreeMinDepth();
+            testConvertBinaryTreeIntoSumTree();
         }
     }
 }

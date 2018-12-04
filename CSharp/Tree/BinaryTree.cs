@@ -57,5 +57,10 @@ namespace CSharp.Tree {
             this.root.convertIntoSumTree();
         }
 
+        public void print() {
+            root.PrintPretty("", TreePrinter.NodePosition.center, true, false);
+            //root.printInPreOrder();
+        }
+
     }
 }
