@@ -269,6 +269,11 @@ namespace CSharp{
             tree.print();
         }
 
+        static void testSwapAllZerosToRight() {
+            int[] input = { 0, 3, 6, 7, 0, 5, 0, 22, 0 };
+            Console.WriteLine("Output: " + String.Join(", ", SwapAllZerosToRight.solve(input)));
+        }
+
         public static void Main(string[] args) {
             Console.WriteLine("Starting Test Suite!!");
             //testStack();
@@ -296,7 +301,8 @@ namespace CSharp{
             //testKSortedArray();
             //testTurnLightsOff();
             //testBinaryTreeMinDepth();
-            testConvertBinaryTreeIntoSumTree();
+            //testConvertBinaryTreeIntoSumTree();
+            testSwapAllZerosToRight();
         }
     }
 }
