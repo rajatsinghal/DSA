@@ -37,6 +37,14 @@ namespace CSharp.Tree {
                 int right_child_depth = this.right_child != null ? this.right_child.getMinDepth() : 0;
                 return Math.Min(left_child_depth, right_child_depth) + 1;
             }
+
+            public int convertIntoSumTree() {
+                int self_item = this.item;
+                int left_child_sum = this.left_child != null ? this.left_child.convertIntoSumTree() : 0;
+                int right_child_sum = this.right_child != null ? this.right_child.convertIntoSumTree() : 0;
+                this.item = left_child_sum + right_child_sum;
+                return this.item + self_item;
+            }
         }
 
         public Node root;
@@ -46,7 +54,7 @@ namespace CSharp.Tree {
         }
 
         public void convertIntoSumTree() {
-            
+            this.root.convertIntoSumTree();
         }
 
     }
