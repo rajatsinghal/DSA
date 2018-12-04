@@ -45,5 +45,9 @@ namespace CSharp.Tree {
             return this.root.getMinDepth();
         }
 
+        public void convertIntoSumTree() {
+            
+        }
+
     }
 }
