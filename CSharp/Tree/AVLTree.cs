@@ -4,7 +4,7 @@ namespace CSharp.Tree {
 
     class AVLTree {
 
-        class Node : TreePrinter.PrintableNode {
+        public class Node : TreePrinter.PrintableNode {
 
             public int item;
             public Node left_child;

@@ -1,9 +1,9 @@
 using System;
 
 namespace CSharp.Tree {
-    class BinaryFree {
+    public class BinaryTree {
 
-        class Node : TreePrinter.PrintableNode {
+        public class Node : TreePrinter.PrintableNode {
             public int item;
             public Node left_child;
             public Node right_child;
@@ -35,11 +35,11 @@ namespace CSharp.Tree {
             public int getMinDepth() {
                 int left_child_depth = this.left_child != null ? this.left_child.getMinDepth() : 0;
                 int right_child_depth = this.right_child != null ? this.right_child.getMinDepth() : 0;
-                return Math.Max(left_child_depth, right_child_depth) + 1;
+                return Math.Min(left_child_depth, right_child_depth) + 1;
             }
         }
 
-        Node root;
+        public Node root;
 
         public int getMinDepth() {
             return this.root.getMinDepth();

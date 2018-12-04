@@ -241,6 +241,17 @@ namespace CSharp{
             Console.WriteLine("Solution for min time: " + prob.solve());
         }
 
+        static void testBinaryTreeMinDepth() {
+            BinaryTree tree = new BinaryTree();
+            tree.root = new BinaryTree.Node(1);
+            tree.root.left_child = new BinaryTree.Node(2);
+            tree.root.right_child = new BinaryTree.Node(3);
+            tree.root.left_child.left_child = new BinaryTree.Node(4);
+            tree.root.left_child.right_child = new BinaryTree.Node(5);
+
+            Console.WriteLine("The minimum depth of " + "binary tree is : " + tree.getMinDepth());
+        }
+
         public static void Main(string[] args) {
             Console.WriteLine("Starting Test Suite!!");
             //testStack();
@@ -266,7 +277,8 @@ namespace CSharp{
             //testNQueen();
             //testLongestCommonSubsequence();
             //testKSortedArray();
-            testTurnLightsOff();
+            //testTurnLightsOff();
+            testBinaryTreeMinDepth();
         }
     }
 }
