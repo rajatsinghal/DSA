@@ -274,6 +274,23 @@ namespace CSharp{
             Console.WriteLine("Output: " + String.Join(", ", SwapAllZerosToRight.solve(input)));
         }
 
+        static void testBinaryTreeNodeDistance() {
+            BinaryTree tree = new BinaryTree();
+            tree.root = new BinaryTree.Node(1);
+            tree.root.left_child = new BinaryTree.Node(2);
+            tree.root.right_child = new BinaryTree.Node(3);
+            tree.root.left_child.left_child = new BinaryTree.Node(4);
+            tree.root.left_child.right_child = new BinaryTree.Node(5);
+            tree.root.right_child.left_child = new BinaryTree.Node(6);
+            tree.root.right_child.right_child = new BinaryTree.Node(7);
+
+            Console.WriteLine("Orignal Tree:");
+            tree.print();
+            int node_1_item = 1;
+            int node_2_item = 7;
+            Console.WriteLine("Distance between " + node_1_item + " and " + node_2_item + " is: " + tree.getDistanceBetweenNodes(node_1_item, node_2_item));
+        }
+
         public static void Main(string[] args) {
             Console.WriteLine("Starting Test Suite!!");
             //testStack();
@@ -302,7 +319,8 @@ namespace CSharp{
             //testTurnLightsOff();
             //testBinaryTreeMinDepth();
             //testConvertBinaryTreeIntoSumTree();
-            testSwapAllZerosToRight();
+            //testSwapAllZerosToRight();
+            testBinaryTreeNodeDistance();
         }
     }
 }

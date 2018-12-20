@@ -1,5 +1,5 @@
 namespace CSharp.Stack {
-    class Stack<T> {
+    public class Stack<T> {
 
         T[] items;
         int top = -1;
