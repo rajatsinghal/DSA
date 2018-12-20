@@ -57,6 +57,10 @@ namespace CSharp.Tree {
             this.root.convertIntoSumTree();
         }
 
+        public int getDistanceBetweenNodes(int node_1_item, int node_2_item) {
+            
+        }
+
         public void print() {
             root.PrintPretty("", TreePrinter.NodePosition.center, true, false);
             //root.printInPreOrder();
