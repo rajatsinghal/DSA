@@ -45,6 +45,23 @@ namespace CSharp.Tree {
                 this.item = left_child_sum + right_child_sum;
                 return this.item + self_item;
             }
+
+            public bool findAncestors(int search_item, CSharp.Stack.Stack<int> ancestry) {
+                if(search_item == this.item) {
+                    ancestry.push(this.item);
+                    return true;
+                } else {
+                    if(this.left_child != null && this.left_child.findAncestors(search_item, ancestry)) {
+                        ancestry.push(this.item);
+                        return true;
+                    } else if(this.right_child != null && this.right_child.findAncestors(search_item, ancestry)) {
+                        ancestry.push(this.item);
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            }
         }
 
         public Node root;
@@ -58,11 +75,32 @@ namespace CSharp.Tree {
         }
 
         public int getDistanceBetweenNodes(int node_1_item, int node_2_item) {
-            
+            CSharp.Stack.Stack<int> node_1_ancestry = new CSharp.Stack.Stack<int>(1000);
+            this.root.findAncestors(node_1_item, node_1_ancestry);
+            CSharp.Stack.Stack<int> node_2_ancestry = new CSharp.Stack.Stack<int>(1000);
+            this.root.findAncestors(node_2_item, node_2_ancestry);
+
+            int min_distance = 0;
+            while(true) {
+                if(!node_1_ancestry.isEmpty() && !node_2_ancestry.isEmpty()) {
+                    if(node_1_ancestry.pop() != node_2_ancestry.pop())
+                        min_distance += 2;
+                } else if(!node_1_ancestry.isEmpty()) {
+                    node_1_ancestry.pop();
+                    min_distance++;
+                } else if(!node_2_ancestry.isEmpty()) {
+                    node_2_ancestry.pop();
+                    min_distance++;
+                } else {
+                    break;
+                }
+            }
+            return min_distance;
         }
 
         public void print() {
             root.PrintPretty("", TreePrinter.NodePosition.center, true, false);
+
             //root.printInPreOrder();
         }
 
