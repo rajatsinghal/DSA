@@ -283,12 +283,15 @@ namespace CSharp{
             tree.root.left_child.right_child = new BinaryTree.Node(5);
             tree.root.right_child.left_child = new BinaryTree.Node(6);
             tree.root.right_child.right_child = new BinaryTree.Node(7);
+            tree.root.right_child.left_child.right_child = new BinaryTree.Node(8);
 
             Console.WriteLine("Orignal Tree:");
             tree.print();
-            int node_1_item = 1;
-            int node_2_item = 7;
-            Console.WriteLine("Distance between " + node_1_item + " and " + node_2_item + " is: " + tree.getDistanceBetweenNodes(node_1_item, node_2_item));
+            Console.WriteLine("Distance between 4 and 5 is: " + tree.getDistanceBetweenNodes(4, 5));
+            Console.WriteLine("Distance between 4 and 6 is: " + tree.getDistanceBetweenNodes(4, 6));
+            Console.WriteLine("Distance between 3 and 4 is: " + tree.getDistanceBetweenNodes(3, 4));
+            Console.WriteLine("Distance between 2 and 4 is: " + tree.getDistanceBetweenNodes(2, 4));
+            Console.WriteLine("Distance between 8 and 5 is: " + tree.getDistanceBetweenNodes(8, 5));
         }
 
         public static void Main(string[] args) {
